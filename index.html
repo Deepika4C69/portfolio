@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kosanam Deepika | CS Engineer & Developer</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --neon-pink: rgb(255, 192, 228);
+            --neon-blue: #05d9e8;
+            --neon-purple: #d300c5;
+            --neon-green: #00ff9d;
+            --dark: #0d0221;
+            --light: #f8fafc;
+            --gray: #94a3b8;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Neon Background Elements */
+        .neon-circle {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.15;
+            z-index: -1;
+        }
+        
+        .circle-1 {
+            width: 300px;
+            height: 300px;
+            background: var(--neon-pink);
+            top: -100px;
+            left: -100px;
+            animation: float 15s infinite ease-in-out;
+        }
+        
+        .circle-2 {
+            width: 400px;
+            height: 400px;
+            background: var(--neon-blue);
+            bottom: -150px;
+            right: -100px;
+            animation: float 18s infinite ease-in-out reverse;
+        }
+        
+        .circle-3 {
+            width: 200px;
+            height: 200px;
+            background: var(--neon-purple);
+            top: 40%;
+            left: 30%;
+            animation: float 12s infinite ease-in-out;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0);
+            }
+            50% {
+                transform: translate(20px, 20px);
+            }
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: rgba(13, 2, 33, 0.8);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(255, 42, 109, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--neon-green);
+            text-decoration: none;
+            text-shadow: 0 0 5px var(--neon-green), 0 0 15px var(--neon-green);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--neon-blue);
+            text-shadow: 0 0 5px var(--neon-blue);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--neon-blue);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--light);
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 6rem;
+            position: relative;
+        }
+        
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
+        
+        .hero-text {
+            flex: 1;
+        }
+        
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .hero-image img {
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 20px var(--neon-pink), 0 0 40px rgba(255, 42, 109, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            width: 370px;
+            height: 370px;
+            border-radius: 50%;
+            border: 2px dashed var(--neon-blue);
+            animation: spin 20s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            color: var(--neon-blue);
+            margin-bottom: 1rem;
+            font-weight: 600;
+            text-shadow: 0 0 5px var(--neon-blue);
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            background: linear-gradient(90deg, var(--neon-pink), var(--neon-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--gray);
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background-color: var(--neon-pink);
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 2px solid var(--neon-pink);
+            box-shadow: 0 0 10px var(--neon-pink), 0 0 20px rgba(255, 42, 109, 0.3);
+        }
+        
+        .btn:hover {
+            background-color: transparent;
+            color: var(--neon-pink);
+            box-shadow: 0 0 20px var(--neon-pink), 0 0 40px rgba(255, 42, 109, 0.3);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: var(--neon-blue);
+            border: 2px solid var(--neon-blue);
+            box-shadow: 0 0 10px var(--neon-blue), 0 0 20px rgba(5, 217, 232, 0.3);
+            margin-left: 1rem;
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--neon-blue);
+            color: var(--dark);
+            box-shadow: 0 0 20px var(--neon-blue), 0 0 40px rgba(5, 217, 232, 0.3);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .social-links a {
+            color: var(--light);
+            font-size: 1.5rem;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--neon-green);
+            transform: translateY(-3px);
+            text-shadow: 0 0 10px var(--neon-green);
+        }
+        
+        /* Sections */
+        section {
+            padding: 6rem 0;
+            position: relative;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+            color: var(--neon-green);
+            text-shadow: 0 0 5px var(--neon-green);
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            background-color: var(--neon-blue);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+            box-shadow: 0 0 10px var(--neon-blue);
+        }
+        
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--neon-blue);
+        }
+        
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: #cbd5e1;
+        }
+        
+        .about-skills {
+            flex: 1;
+        }
+        
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .skill {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 500;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .skill:hover {
+            transform: translateY(-3px);
+            background-color: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 10px var(--neon-purple), 0 0 20px rgba(211, 0, 197, 0.1);
+            border-color: var(--neon-purple);
+        }
+        
+        .skill i {
+            color: var(--neon-green);
+        }
+        
+        /* Education Section */
+        .bg-light {
+            background-color: rgba(255, 255, 255, 0.03);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--neon-pink), var(--neon-blue));
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+        }
+        
+        .timeline-item {
+            padding: 1rem 2rem;
+            position: relative;
+            width: 50%;
+            margin-bottom: 2rem;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-content {
+            padding: 1.5rem;
+            background-color: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s;
+        }
+        
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            border-color: var(--neon-blue);
+        }
+        
+        .timeline-content::after {
+            content: '';
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background-color: var(--dark);
+            border: 3px solid var(--neon-pink);
+            border-radius: 50%;
+            top: 20px;
+            box-shadow: 0 0 10px var(--neon-pink);
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content::after {
+            right: -37px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content::after {
+            left: -37px;
+        }
+        
+        .timeline-date {
+            color: var(--neon-green);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--light);
+        }
+        
+        .timeline-description {
+            color: var(--gray);
+        }
+        
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .project-card {
+            background-color: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            border-color: var(--neon-purple);
+        }
+        
+        .project-image {
+            height: 200px;
+            background: linear-gradient(135deg, rgba(255, 42, 109, 0.1) 0%, rgba(5, 217, 232, 0.1) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--neon-blue);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .project-details {
+            padding: 1.5rem;
+        }
+        
+        .project-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--light);
+        }
+        
+        .project-description {
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+        
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .tech-tag {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            color: var(--neon-green);
+            border: 1px solid rgba(0, 255, 157, 0.1);
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .project-links a {
+            color: var(--neon-blue);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            transition: all 0.3s;
+        }
+        
+        .project-links a:hover {
+            color: var(--neon-green);
+            text-shadow: 0 0 5px var(--neon-green);
+        }
+        
+        /* Certifications Section */
+        .certifications-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .certification-card {
+            background-color: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .certification-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            border-color: var(--neon-green);
+        }
+        
+        .certification-title {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--light);
+        }
+        
+        .certification-title i {
+            color: var(--neon-pink);
+        }
+        
+        .certification-issuer {
+            color: var(--neon-blue);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+        
+        .certification-date {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        /* Contact Section */
+        .contact-container {
+            display: flex;
+            gap: 4rem;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--neon-blue);
+        }
+        
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--neon-pink);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 0 10px var(--neon-pink);
+        }
+        
+        .contact-text h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+            color: var(--light);
+        }
+        
+        .contact-text p, .contact-text a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .contact-text a:hover {
+            color: var(--neon-green);
+            text-shadow: 0 0 5px var(--neon-green);
+        }
+        
+        .contact-form {
+            flex: 1;
+            background-color: rgba(255, 255, 255, 0.03);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--light);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            font-family: inherit;
+            transition: all 0.3s;
+            color: var(--light);
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--neon-blue);
+            box-shadow: 0 0 10px var(--neon-blue);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: rgba(13, 2, 33, 0.8);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--neon-pink);
+            text-shadow: 0 0 5px var(--neon-pink);
+        }
+        
+        .copyright {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-content, .about-content, .contact-container {
+                flex-direction: column;
+            }
+            
+            .hero-image, .about-skills {
+                margin-top: 2rem;
+            }
+            
+            .timeline::before {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 0;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-content::after {
+                left: 18px !important;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                right: 0;
+                background-color: rgba(13, 2, 33, 0.95);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-image img {
+                width: 250px;
+                height: 250px;
+            }
+            
+            .hero-image::before {
+                width: 270px;
+                height: 270px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Neon Background Elements -->
+    <div class="neon-circle circle-1"></div>
+    <div class="neon-circle circle-2"></div>
+    <div class="neon-circle circle-3"></div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">Deepika</a>
+                <div class="nav-links">
+                    <a href="#about">About</a>
+                    <a href="#education">Education</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#certifications">Certifications</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <p class="tagline">Computer Science Engineer & Developer</p>
+                    <h1>Kosanam Deepika</h1>
+                    <p>Passionate about building innovative web solutions and AI applications. Currently pursuing B.Tech in Computer Science at Vignan University with a strong focus on full-stack development and emerging technologies.</p>
+                    <div>
+                        <a href="#contact" class="btn">Get In Touch</a>
+                        <a href="#projects" class="btn btn-outline">View Projects</a>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/deepika-kosanam-327a43353" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/Deepika4C69" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://www.codechef.com/users/deepikakosanam" target="_blank"><i class="fas fa-code"></i></a>
+                        <a href="mailto:deepikakosanam27@gmail.com"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="C:\WhatsApp Image 2025-06-24 at 12.43.10 PM.jpeg"alt="Kosanam Deepika">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+                <p>Get to know more about my skills, experience, and what I bring to the table</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Who am I?</h3>
+                    <p>An enthusiastic and committed Computer Science undergraduate with a strong foundation in modern web technologies and AI-based solutions. Actively seeking an internship to enhance practical knowledge, develop real-world skills, and contribute meaningfully to innovative software development and research projects.</p>
+                    <p>I thrive in environments where I can solve complex problems and build applications that make a difference. My approach combines technical expertise with creative thinking to deliver optimal solutions.</p>
+                    <p>When I'm not coding, you can find me exploring new technologies, participating in coding competitions, or contributing to open-source projects.</p>
+                </div>
+                <div class="about-skills">
+                    <h3>My Skills</h3>
+                    <div class="skills-container">
+                        <div class="skill"><i class="fab fa-java"></i> Java</div>
+                        <div class="skill"><i class="fab fa-python"></i> Python</div>
+                        <div class="skill"><i class="fas fa-code"></i> C</div>
+                        <div class="skill"><i class="fab fa-html5"></i> HTML</div>
+                        <div class="skill"><i class="fab fa-css3-alt"></i> CSS</div>
+                        <div class="skill"><i class="fab fa-js"></i> JavaScript</div>
+                        <div class="skill"><i class="fab fa-react"></i> React</div>
+                        <div class="skill"><i class="fab fa-node-js"></i> Express</div>
+                        <div class="skill"><i class="fas fa-database"></i> MongoDB</div>
+                        <div class="skill"><i class="fas fa-database"></i> MySQL</div>
+                        <div class="skill"><i class="fas fa-project-diagram"></i> REST APIs</div>
+                        <div class="skill"><i class="fab fa-git-alt"></i> Git</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section bg-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>Education</h2>
+                <p>My academic journey and achievements</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2023 - 2027</div>
+                        <h3 class="timeline-title">B.Tech in Computer Science & Engineering</h3>
+                        <p class="timeline-description">Vignan University, Andhra Pradesh</p>
+                        <p>1st Year 1st Semester GPA: 6.95/10</p>
+                        <p>1st Year 2nd Semester GPA: 7.09/10</p>
+                        <p>2nd Year 1st Semester GPA: 6.87/10</p>
+                        <p>2nd Year 2nd Semester GPA: 7.23/10</p>
+                        <p>3rd Year 1st Semester: Currently Pursuing</p>
+                        
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2021 - 2023</div>
+                        <h3 class="timeline-title">Intermediate (10+2)</h3>
+                        <p class="timeline-description">JMJ College for Women (Autonomous), Tenali</p>
+                        <p>Score: 83.1%</p>
+    
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2020 - 2021</div>
+                        <h3 class="timeline-title">10th Grade</h3>
+                        <p class="timeline-description">Z.P.H. School, Ilavaram</p>
+                        <p>Score: 98%</p>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Projects</h2>
+                <p>Some of my notable work and contributions</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-qrcode fa-4x"></i>
+                    </div>
+                    <div class="project-details">
+                        <h3 class="project-title">QR-Menu Pro</h3>
+                        <p class="project-description">Developed a digital QR-based menu system to streamline restaurant operations and improve customer experience.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">MongoDB</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                            <a href="https://github.com/Deepika4C69/QR-MENU-PRO"><i class="fab fa-github"></i> Source Code</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-traffic-light fa-4x"></i>
+                    </div>
+                    <div class="project-details">
+                        <h3 class="project-title">AI-Agent Traffic Smart Controller</h3>
+                        <p class="project-description">Designed an AI-powered traffic management system to optimize traffic flow and reduce congestion.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">AI</span>
+                            <span class="tech-tag">Computer Vision</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                            <a href="https://github.com/Deepika4C69/AI-AGENT-TRAFFIC-SMART-CONTROLLER"><i class="fab fa-github"></i> Source Code</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-robot fa-4x"></i>
+                    </div>
+                    <div class="project-details">
+                        <h3 class="project-title">AI-Based Campus Automation Bot</h3>
+                        <p class="project-description">Created an intelligent bot for automating campus-related queries and tasks to boost efficiency.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">NLP</span>
+                            <span class="tech-tag">Chatbot</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                            <a href="https://github.com/Deepika4C69/AI-Based-Campus-Automation-Bot"><i class="fab fa-github"></i> Source Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="section bg-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>Certifications</h2>
+                <p>My professional certifications and achievements</p>
+            </div>
+            <div class="certifications-container">
+                <div class="certification-card">
+                    <h3 class="certification-title"><i class="fas fa-certificate"></i> Google Interview Questions</h3>
+                    <p class="certification-issuer">CodeChef</p>
+                    <p class="certification-date">June 2025</p>
+                </div>
+                <div class="certification-card">
+                    <h3 class="certification-title"><i class="fas fa-certificate"></i> Flipkart Coding Interview Questions</h3>
+                    <p class="certification-issuer">CodeChef</p>
+                    <p class="certification-date">June 2025</p>
+                </div>
+                <div class="certification-card">
+                    <h3 class="certification-title"><i class="fas fa-certificate"></i> Microsoft Coding Interview Question</h3>
+                    <p class="certification-issuer">CodeChef</p>
+                    <p class="certification-date">June 2025</p>
+                </div>
+                <div class="certification-card">
+                    <h3 class="certification-title"><i class="fas fa-certificate"></i> SQL (Basic)</h3>
+                    <p class="certification-issuer">HackerRank</p>
+                    <p class="certification-date">June 2025</p>
+                </div>
+                <div class="certification-card">
+                    <h3 class="certification-title"><i class="fas fa-certificate"></i> AWS Certified Developer</h3>
+                    <p class="certification-issuer">Infosys</p>
+                    <p class="certification-date">June 2025</p>
+                </div>
+                <div class="certification-card">
+                    <h3 class="certification-title"><i class="fas fa-certificate"></i> AI Workshop</h3>
+                    <p class="certification-issuer">NxtWave</p>
+                    <p class="certification-date">Jan 2025 and June 2025</p>
+                </div>
+                <div class="certification-card">
+                    <h3 class="certification-title"><i class="fas fa-certificate"></i> AI Tools Workshop </h3>
+                    <p class="certification-issuer">be10x</p>
+                    <p class="certification-date">June 2025</p>
+                </div>
+                <div class="certification-card">
+                    <h3 class="certification-title"><i class="fas fa-certificate"></i>  Introduction To Development Of Financeand Operations </h3>
+                    <p class="certification-issuer">KOENIG</p>
+                    <p class="certification-date">June 2025</p>
+                </div>
+                <div class="certification-card">
+                    <h3 class="certification-title"><i class="fas fa-certificate"></i> Software Engineering JobSimulation </h3>
+                    <p class="certification-issuer">Forage</p>
+                    <p class="certification-date">June 2025</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Me</h2>
+                <p>Feel free to reach out for collaborations or opportunities</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Let's Connect</h3>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Email</h4>
+                                <a href="mailto:deepikakosanam27@gmail.com">deepikakosanam27@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Phone</h4>
+                                <a href="tel:+917382664747">+91 7382664747</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Location</h4>
+                                <p>Vignan University, Andhra Pradesh, India</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-linkedin-in"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>LinkedIn</h4>
+                                <a href="https://www.linkedin.com/in/deepika-kosanam-327a43353" target="_blank">www.linkedin.com/in/deepika-kosanam-327a43353</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" class="form-control" placeholder="Enter your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" class="form-control" placeholder="Enter subject">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" class="form-control" placeholder="Enter your message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="#about">About</a>
+                    <a href="#education">Education</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#certifications">Certifications</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/deepika-kosanam-327a43353" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://codechef.com" target="_blank"><i class="fas fa-code"></i></a>
+                    <a href="mailto:deepikakosanam27@gmail.com"><i class="fas fa-envelope"></i></a>
+                </div>
+                <p class="copyright">© 2025 Kosanam Deepika. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                if (window.innerWidth <= 768) {
+                    document.querySelector('.nav-links').classList.remove('active');
+                }
+            });
+        });
+        
+        // Add animation to elements when they come into view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        document.querySelectorAll('.timeline-item, .project-card, .certification-card').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
